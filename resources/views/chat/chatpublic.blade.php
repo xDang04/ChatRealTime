@@ -50,7 +50,7 @@
                         <div class="col-md-12">
                             <a href="" class="item">
                                 <div class="status"></div>
-                                <img src="{{ $user -> image }}" alt="">
+                                <img src="{{ $user -> image }}" alt="Erorr">
                                 <p>{{ $user -> name}}</p>
                             </a>
                         </div>  
@@ -77,7 +77,18 @@
 @endsection
 
 @section('script')
-
+    <script type="module">
+        Echo.join('chat')
+        .here(users => {
+            console.log(users, 'here');
+        })
+        .joining(user => {
+            console.log(user, 'joining');
+        })
+        .leaving(user => {
+            console.log(user , 'leaving');
+        })
+    </script>
 @endsection
 
 

@@ -19,7 +19,12 @@ Broadcast::channel('App.Models.User.{id}', function ($user, $id) {
 
 Broadcast::channel('chat', function($user){
     
-    if($user){
-
+    if($user != null){
+        return [
+        'id'    => $user -> id,
+        'name'  => $user -> name
+        ];
+    }else{
+        return false;
     }
 });
